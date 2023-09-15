@@ -1,5 +1,8 @@
-git add <file>
+git status [shows staged changes]
 
-git commit -m 'message'
+1.  git add <file>
 
-git push
+2.  git commit -m 'message'
+    git commit -a
+
+3.  git push
