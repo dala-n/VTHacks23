@@ -1,4 +1,9 @@
-git status [shows staged changes]
+git status [shows staged file changes]
+
+git diff [shows changes]
+
+git checkout -b 'branch_name' [new branch]
+
 
 1.  git add <file>
 
