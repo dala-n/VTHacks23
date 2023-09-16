@@ -4,6 +4,8 @@ git stash
 
 git diff [shows changes]
 
+git stash
+
 git checkout -b 'branch_name' [new branch]
 
 
