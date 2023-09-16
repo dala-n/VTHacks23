@@ -7,12 +7,12 @@ body, ul {
 
 /* Style the header */
 header {
-    background-color: #333;
-    color: #fff;
+    background-color: #FFBB5C;
+    color: black;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
+    padding: 5px 10px;
 }
 
 /* Style the logo */
