@@ -9,7 +9,11 @@ def search_demographics(zipcode):
                 data = {
                     "ZIP Code": row["zcta10"],
                     "Total Population (13-17)": row["totpop13_17"],
-                    "Population Density (13-17)": row["popden13_17"],
+                    "White": float(row["pnhwhite13_17"]),
+                    "Black": float(row["pnhblack13_17"]),
+                    "Hispanic": float(row["phispanic13_17"]),
+                    "Foreign": float(row["pfborn13_17"]),
+                    
                     # Add other demographic data here
                 }
                 break  # Stop searching after finding a matching ZIP code
