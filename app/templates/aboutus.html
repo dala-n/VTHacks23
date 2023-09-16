@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+{% include 'header.html' %}
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <title>My Webpage</title>
-</head>
-<body>
-    <header>
-        <div class="logo">
-            <a href="/"><img img src="{{ url_for('static', filename='IQ.jpg') }}" height="70px" width="70px" alt=”HomeIQ”></a>
-        </div>
-        <nav id="nav">
-            <ul>
-                <li><a href="/about-us">About Us</a></li>
-            </ul>
-        </nav>
-    </header>
+
+    <div id="cover">
+        <form method="get" action="">
+          <div class="tb">
+            <div class="td"><input type="text" placeholder="Enter ZIP" required></div>
+            <div class="td" id="s-cover">
+              <button type="submit">
+                <div id="s-circle"></div>
+                <span></span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
 <head>
 </html>
