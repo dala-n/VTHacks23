@@ -98,7 +98,7 @@ header {
   
   input,
   button {
-    color: #fff;
+    color: white;
     font-family: Nunito;
     padding: 0;
     margin: 0;
@@ -214,5 +214,5 @@ header {
   #s-cover:hover button span:after {
     right: -6px;
     width: 40px;
-    background-color: #fff
+    background-color: #ffffff
   }
