@@ -1,7 +1,11 @@
 <!DOCTYPE html>
+
+
 <html>
-<head>
-    <title>Demographic Data Search</title>
+
+{% include 'header.html' %}
+
+<title>Demographic Data Search</title>
 </head>
 <body>
     <h1>Search for Demographic Data by ZIP Code</h1>
@@ -13,28 +17,22 @@
     {% if data %}
     <h2>Demographic Data for ZIP Code {{ data.zipcode }}</h2>
     <ul>
-        <li>Total Population (08-12): {{ data["Total Population (08-12)"] }}</li>
+        <li>Total Population (13-17): {{ data["Total Population (13-17)"] }}</li>
         <!-- Add other demographic data here -->
     </ul>
     {% else %}
     <p>No data found for the entered ZIP code.</p>
     {% endif %}
 </body>
-<body>
-    <h1>My First Google Map</h1>
 
-        <div id="googleMap" style="width:100%;height:400px;"></div>
+<!--
+<button id="myButton" class="float-left submit-button" >Home</button>
 
-        <script>
-        function myMap() {
-        var mapProp= {
-        center:new google.maps.LatLng(51.508742,-0.120850),
-        zoom:5,
-        };
-        var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-        }
-        </script>
+<script type="text/javascript">
+    document.getElementById("myButton").onclick = function () {
+        location.href = "/map";
+    };
+</script>
+-->
 
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_L6kO-aXyzkq3FpqMr3XzDiS0jTxbJYA&callback=myMap"></script>
-</body>
 </html>

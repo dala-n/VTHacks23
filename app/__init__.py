@@ -14,5 +14,13 @@ def index():
         return render_template("index.html", data=data)
     return render_template("index.html", data=None)
 
+@app.route("/map", methods=["GET", "POST"])
+def map():
+    return render_template("map.html")
+
+@app.route("/tests")
+def tests():
+    return render_template("tests.html")
+
 if __name__ == "__main__":
-    app.run(host="localhost", port=8000, debug=True)
+    app.run(host="localhost", port=8080, debug=True)
