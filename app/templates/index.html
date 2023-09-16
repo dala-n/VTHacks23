@@ -1,10 +1,24 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>[REDACTED]</title>
-    
+    <title>Demographic Data Search</title>
 </head>
-    <body>
-        Welcome to [REDACTED] where we do [REDACTED].
-    </body>
+<body>
+    <h1>Search for Demographic Data by ZIP Code</h1>
+    <form method="POST">
+        <label for="zipcode">Enter ZIP Code:</label>
+        <input type="text" id="zipcode" name="zipcode" required>
+        <button type="submit">Search</button>
+    </form>
+    {% if data %}
+    <h2>Demographic Data for ZIP Code {{ data.zipcode }}</h2>
+    <ul>
+        <li>Population: {{ data.population }}</li>
+        <li>Median Age: {{ data.median_age }}</li>
+        <!-- Add other demographic data here -->
+    </ul>
+    {% else %}
+    <p>No data found for the entered ZIP code.</p>
+    {% endif %}
+</body>
 </html>
