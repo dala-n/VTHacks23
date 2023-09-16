@@ -16,29 +16,15 @@
     </form>
     {% if data %}
     <h2>Demographic Data for ZIP Code {{ data.zipcode }}</h2>
-    <ul>
-        <li>Total Population: {{ data["Total Population (13-17)"] }}</li>
-        <li>Percentage White: {{ data["White"] }}</li>
-        <li>Percentage Black: {{ data["Black"] }}</li>
-        <li>Percentage Hispanic: {{ data["Hispanic"] }}</li>
-        <li>Percentage Foreign born: {{ data["Foreign"] }}</li>
-        
-        <!-- Add other demographic data here -->
 
-    </ul>
-    {% else %}
-    <p>No data found for the entered ZIP code.</p>
+    {% if img_base64 %}
+    <h3>Pie Chart</h3>
+    <img src="data:image/png;base64,{{ img_base64 }}" alt="Pie Chart">
     {% endif %}
+    {% endif %}
+    
+    
 </body>
 
-<!--
-<button id="myButton" class="float-left submit-button" >Home</button>
-
-<script type="text/javascript">
-    document.getElementById("myButton").onclick = function () {
-        location.href = "/map";
-    };
-</script>
--->
 
 </html>
