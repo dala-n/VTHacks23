@@ -17,8 +17,14 @@
     {% if data %}
     <h2>Demographic Data for ZIP Code {{ data.zipcode }}</h2>
     <ul>
-        <li>Total Population (13-17): {{ data["Total Population (13-17)"] }}</li>
+        <li>Total Population: {{ data["Total Population (13-17)"] }}</li>
+        <li>Percentage White: {{ data["White"] }}</li>
+        <li>Percentage Black: {{ data["Black"] }}</li>
+        <li>Percentage Hispanic: {{ data["Hispanic"] }}</li>
+        <li>Percentage Foreign born: {{ data["Foreign"] }}</li>
+        
         <!-- Add other demographic data here -->
+
     </ul>
     {% else %}
     <p>No data found for the entered ZIP code.</p>
