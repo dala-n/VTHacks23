@@ -1,5 +1,7 @@
 git status [shows staged file changes]
 
+git stash
+
 git diff [shows changes]
 
 git checkout -b 'branch_name' [new branch]
@@ -12,3 +14,5 @@ git checkout -b 'branch_name' [new branch]
 3.  git push
 
 4.  git pull
+
+# Google maps API key = AIzaSyC_L6kO-aXyzkq3FpqMr3XzDiS0jTxbJYA

@@ -1,32 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <title>My Webpage</title>
-</head>
-<body>
-    <header>
-        <div class="logo">
-            <a href="/">Home</a>
-        </div>
-        <div class="menu-toggle" onclick="toggleMenu()">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-        <nav id="nav">
-            <ul>
-                <li><a href="/index">Home</a></li>
-                <li><a href="/map">Map</a></li>
-            </ul>
-        </nav>
-    </header>
-    <!-- Your webpage content goes here -->
-    <div class="content">
-        <h1>Welcome to My Webpage</h1>
-        <!-- Other content -->
-    </div>
-</body>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <!-- jsFiddle will insert css and js -->
+  </head>
+  <body>
+    <input id="grey" type="button" value="grey" />
+    <input id="classic" type="button" value="classic" />
+    <input id="light" type="button" value="light" />
+    <div id="map"></div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_L6kO-aXyzkq3FpqMr3XzDiS0jTxbJYA&callback=initMap&libraries=&v=beta&map_ids=27887e97bd47bbcd"
+        async
+    ></script>
+  </body>
 </html>
