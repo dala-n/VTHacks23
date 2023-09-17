@@ -23,7 +23,7 @@ def index():
             fig, ax = plt.subplots()
             labels = list(data.keys()) 
             sizes = list(data.values())
-            colors = ['red', 'blue', 'green', 'yellow']
+            colors = ['red', 'blue', 'green', 'yellow', 'purple', 'cyan']
 
             # Function to split long labels into multiple lines
             def split_labels(labels, max_line_length=20):
