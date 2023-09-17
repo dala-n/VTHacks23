@@ -12,6 +12,7 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
+
     if request.method == "POST":
         zipcode = request.form["zipcode"]
         data_type = request.form["data-type"]  # Get the selected data type
@@ -20,11 +21,39 @@ def index():
         if data:
             # Create a new figure and axis for the pie chart using Matplotlib
             fig, ax = plt.subplots()
-            labels = list(data.keys())[1:]  # Exclude "ZIP Code" from labels
-            sizes = list(data.values())[1:]
+            labels = list(data.keys()) 
+            sizes = list(data.values())
             colors = ['red', 'blue', 'green', 'yellow']
-            ax.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=140)
+
+            # Function to split long labels into multiple lines
+            def split_labels(labels, max_line_length=20):
+                split_labels = []
+                for label in labels:
+                    if len(label) > max_line_length:
+                        words = label.split()  # Split the label into words
+                        lines = []
+                        current_line = ""
+                        for word in words:
+                            if len(current_line) + len(word) + 1 <= max_line_length:
+                                current_line += " " + word if current_line else word
+                            else:
+                                lines.append(current_line)
+                                current_line = word
+                        if current_line:
+                            lines.append(current_line)
+                        split_labels.append('\n'.join(lines))
+                    else:
+                        split_labels.append(label)
+                return split_labels
+
+            # Split the labels
+            split_labels = split_labels(labels)
+            
+            ax.pie(sizes, labels=split_labels, colors=colors, autopct='%1.1f%%', startangle=140)
             ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle
+
+            # Adjust the left margin to shift the pie chart to the right
+            # plt.subplots_adjust(left=0.2) 
 
             # Save the pie chart as an image file
             img_buf = io.BytesIO()
@@ -41,9 +70,6 @@ def index():
             return render_template("index.html", data=data, img_base64=img_base64)
     
     return render_template("index.html", data=None)
-
-
-
 
 
 @app.route("/map", methods=["GET", "POST"])

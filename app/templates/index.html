@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Search for Demographic Data by ZIP Code</h1>
-    <form method="POST">
+    <form method="POST" id="search-form"> <!-- Give the form an ID for JavaScript access -->
         <label for="zipcode">Enter ZIP Code:</label>
         <input type="text" id="zipcode" name="zipcode" required>
 
@@ -41,6 +41,60 @@
         <li>Bachelor's Degree or Higher: {{ data["Bachelor's Degree or Higher"] }}</li>
     </ul>
     {% endif %}
-    
+
+    <!-- Include jQuery library for easier AJAX handling -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Handle the change event of the drop-down menu
+        $('#data-type').change(function () {
+            // Submit the form asynchronously when the drop-down selection changes
+            $('#search-form').submit();
+        });
+    </script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // Function to save the ZIP code to localStorage
+    function saveZipCode() {
+        const zipcode = $('#zipcode').val();
+        localStorage.setItem('zipcode', zipcode);
+    }
+
+    // Function to load the ZIP code from localStorage and pre-fill the input field
+    function loadZipCode() {
+        const savedZipCode = localStorage.getItem('zipcode');
+        if (savedZipCode) {
+            $('#zipcode').val(savedZipCode);
+        }
+    }
+
+    // Handle the form submission
+    $('#search-form').submit(function (event) {
+        event.preventDefault();  // Prevent the default form submission
+        saveZipCode();  // Save the ZIP code to localStorage
+        const dataType = $('#data-type').val();  // Get the selected data type
+        $.ajax({
+            type: 'POST',
+            url: '/',
+            data: { zipcode: $('#zipcode').val(), 'data-type': dataType },  // Include both ZIP code and data type
+            success: function (response) {
+                $('body').html(response);  // Replace the entire body with the updated content
+                loadZipCode();  // Load the ZIP code from localStorage
+            }
+        });
+    });
+
+    // Handle the change event of the drop-down menu
+    $('#data-type').change(function () {
+        // Submit the form asynchronously when the drop-down selection changes
+        $('#search-form').submit();
+    });
+
+    // Load the ZIP code from localStorage when the page loads
+    $(document).ready(function () {
+        loadZipCode();
+    });
+</script>
+
 </body>
 </html>
