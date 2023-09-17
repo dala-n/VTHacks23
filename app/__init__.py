@@ -14,33 +14,34 @@ app = Flask(__name__)
 def index():
     if request.method == "POST":
         zipcode = request.form["zipcode"]
-        # Call the search_demographics function to retrieve percentage data based on the ZIP code.
-        # Store the data in a variable.
-        data = search_demographics(zipcode)
+        data_type = request.form["data-type"]  # Get the selected data type
+        data = search_demographics(zipcode, data_type)  # Filter data based on data type
 
-        # Create a new figure and axis for the pie chart using Matplotlib
-        fig, ax = plt.subplots()
-        labels = ['White', 'Black', 'Hispanic', 'Foreign']
-        sizes = [data["White"], data["Black"], data["Hispanic"], data["Foreign"]]
-        colors = ['red', 'blue', 'green', 'yellow']
-        ax.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=140)
-        ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle
+        if data:
+            # Create a new figure and axis for the pie chart using Matplotlib
+            fig, ax = plt.subplots()
+            labels = list(data.keys())[1:]  # Exclude "ZIP Code" from labels
+            sizes = list(data.values())[1:]
+            colors = ['red', 'blue', 'green', 'yellow']
+            ax.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=140)
+            ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle
 
-        # Save the pie chart as an image file
-        img_buf = io.BytesIO()
-        plt.savefig(img_buf, format='png')
-        img_buf.seek(0)
-        img_base64 = base64.b64encode(img_buf.read()).decode('utf-8')
+            # Save the pie chart as an image file
+            img_buf = io.BytesIO()
+            plt.savefig(img_buf, format='png')
+            img_buf.seek(0)
+            img_base64 = base64.b64encode(img_buf.read()).decode('utf-8')
 
-        # Close the Matplotlib figure to free up resources
-        plt.close(fig)
+            # Close the Matplotlib figure to free up resources
+            plt.close(fig)
 
-        # Close the image buffer
-        img_buf.close()
+            # Close the image buffer
+            img_buf.close()
 
-        return render_template("index.html", data=data, img_base64=img_base64)
+            return render_template("index.html", data=data, img_base64=img_base64)
     
     return render_template("index.html", data=None)
+
 
 
 

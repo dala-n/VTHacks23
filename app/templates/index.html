@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-
-
 <html>
 
 {% include 'header.html' %}
@@ -12,19 +10,37 @@
     <form method="POST">
         <label for="zipcode">Enter ZIP Code:</label>
         <input type="text" id="zipcode" name="zipcode" required>
+
+        <!-- Add a drop-down menu for selecting data types -->
+        <label for="data-type">Select Data Type:</label>
+        <select id="data-type" name="data-type">
+            <option value="ethnicity">Ethnicity</option>
+            <option value="income">Income</option>
+            <option value="education">Education</option>
+        </select>
+
         <button type="submit">Search</button>
     </form>
-    {% if data %}
-    <h2>Demographic Data for ZIP Code {{ data.zipcode }}</h2>
 
-    {% if img_base64 %}
+    {% if data %}
+
     <h3>Pie Chart</h3>
     <img src="data:image/png;base64,{{ img_base64 }}" alt="Pie Chart">
+
+    <ul>
+        <li>White: {{ data.White }}</li>
+        <li>Black: {{ data.Black }}</li>
+        <li>Hispanic: {{ data.Hispanic }}</li>
+        <li>Foreign: {{ data.Foreign }}</li>
+        <li>15-30K: {{ data['15-30K'] }}</li>
+        <li>30-50K: {{ data['30-50K'] }}</li>
+        <li>50-100K: {{ data['50-100K'] }}</li>
+        <li>100K+: {{ data['100K+'] }}</li>
+        <li>Less than High School Diploma: {{ data['Less than High School Diploma'] }}</li>
+        <li>High School Diploma and/or Some College: {{ data['High School Diploma and/or Some College'] }}</li>
+        <li>Bachelor's Degree or Higher: {{ data["Bachelor's Degree or Higher"] }}</li>
+    </ul>
     {% endif %}
-    {% endif %}
-    
     
 </body>
-
-
 </html>
