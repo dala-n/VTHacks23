@@ -4,46 +4,42 @@
 {% include 'header.html' %}
 
 <head>
-    <style>
-        /* CSS for the map container */
-        #map-container {
-            float: right; /* Float the map container to the right */
-            width: 50%; /* Set the width to 50% of the screen */
-            height: calc(100vh - 20px); /* Calculate the height minus some space for white space */
-            margin-right: 20px; /* Add some white space to the right */
-        }
 
-        /* CSS for the info panel */
-        #info-panel {
-            float: left; /* Float the info panel to the left */
-            width: 45%; /* Set the width to 45% of the screen */
-            height: calc(100vh - 20px); /* Calculate the height minus some space for white space */
-            margin-left: 20px; /* Add some white space to the left */
-            background-color: #f0f0f0; /* Background color for the info panel */
-            padding: 20px; /* Add some padding for content */
-            box-sizing: border-box; /* Include padding in the width */
-            overflow-y: scroll; /* Add vertical scroll if needed */
-        }
-    </style>
 </head>
 
 <body>
-    <h1>My Google Map and Info Panel</h1>
+    <div id="mapcover">
+        <form method="get" action="">
+          <div class="tb">
+            <div class="td"><input type="text" placeholder="Enter ZIP" required></div>
+            <div class="td" id="s-cover">
+              <button type="submit">
+                <div id="s-circle"></div>
+                <span></span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
 
-    <!-- Create a container div for the map -->
-    <div id="map-container">
-        <div id="googleMap" style="height: 100%;"></div>
-    </div>
+    <div class="info">
+        <h1>My Google Map and Info Panel</h1>
+        <div id="map-container">
+            <div id="googleMap" style="height: 100%;"></div>
+        </div>
 
-    <!-- Create a container div for the info panel -->
-    <div id="info-panel">
-        <h2>Information Panel</h2>
-        <ul>
-            <li>Info Point 1</li>
-            <li>Info Point 2</li>
-            <li>Info Point 3</li>
-            <!-- Add more information points here as needed -->
-        </ul>
+        <!-- Create a container div for the info panel -->
+        
+        <div class="info-panel">
+            <h2>Information Panel</h2>
+            <ul>
+                <li>Info Point 1</li>
+                <li>Info Point 2</li>
+                <li>Info Point 3</li>
+                <!-- Add more information points here as needed -->
+            </ul>
+
+        </div>
 
     </div>
 
