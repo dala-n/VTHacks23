@@ -10,7 +10,7 @@ import base64
 
 app = Flask(__name__)
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/index", methods=["GET", "POST"])
 def index():
 
     if request.method == "POST":
@@ -83,6 +83,11 @@ def tests():
 @app.route("/about-us")
 def aboutus():
     return render_template("aboutus.html")
+
+@app.route("/")
+def home():
+    return render_template("home.html")
+
 
 if __name__ == "__main__":
     app.run(host="localhost", port=8080, debug=True)
