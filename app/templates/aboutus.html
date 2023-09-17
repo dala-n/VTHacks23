@@ -1,22 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-{% include 'header.html' %}
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>About Us</title>
+</head>
 
-    <div id="cover">
-        <form method="get" action="">
-          <div class="tb">
-            <div class="td"><input type="text" placeholder="Enter ZIP" required></div>
-            <div class="td" id="s-cover">
-              <button type="submit">
-                <div id="s-circle"></div>
-                <span></span>
-              </button>
+<body>
+    <header>
+        <div class="logo">
+            <a href="/"><img src="{{ url_for('static', filename='IQ.jpg') }}" height="70px" width="70px" alt="HomeIQ"></a>
+        </div>
+
+        <nav id="nav">
+            <ul>
+                <li><a href="/about-us">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="about-us">
+        <div class="about-us-section">
+            <div class="about-us-square">
+                <!-- Content for the first square -->
+                <h2>Our Mission</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget ultrices neque.</p>
             </div>
-          </div>
-        </form>
-      </div>
+        </div>
+        <div class="about-us-section">
+            <div class="about-us-square">
+                <!-- Content for the second square -->
+                <h2>Our Team</h2>
+                <p>Meet our dedicated team of experts who make it all possible.</p>
+            </div>
+        </div>
+        <div class="about-us-section">
+            <div class="about-us-square">
+                <!-- Content for the third square -->
+                <h2>Contact Us</h2>
+                <p>Feel free to reach out to us for any inquiries or collaborations.</p>
+            </div>
+        </div>
+    </div>
 
-<head>
+</body>
 </html>

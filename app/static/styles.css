@@ -244,3 +244,32 @@ button span:after {
   width: 40px;
   background-color: gray;
 }
+
+/* About Us */
+.about-us {
+  display: flex;
+  justify-content: space-between;
+  background-color: #FFBB5C;
+  padding: 20px;
+}
+
+.about-us-section {
+  flex: 0 0 calc(33.33% - 20px); /* Distribute the sections equally */
+}
+
+.about-us-square {
+  background-color: gray;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  border-radius: 10px;
+}
+
+/* Style the square content */
+.about-us-square h2 {
+  font-size: 24px;
+}
+
+.about-us-square p {
+  font-size: 18px;
+}
