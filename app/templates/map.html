@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    
+
 {% include 'header.html' %}
 
 <head>
@@ -12,15 +12,38 @@
             height: calc(100vh - 20px); /* Calculate the height minus some space for white space */
             margin-right: 20px; /* Add some white space to the right */
         }
+
+        /* CSS for the info panel */
+        #info-panel {
+            float: left; /* Float the info panel to the left */
+            width: 45%; /* Set the width to 45% of the screen */
+            height: calc(100vh - 20px); /* Calculate the height minus some space for white space */
+            margin-left: 20px; /* Add some white space to the left */
+            background-color: #f0f0f0; /* Background color for the info panel */
+            padding: 20px; /* Add some padding for content */
+            box-sizing: border-box; /* Include padding in the width */
+            overflow-y: scroll; /* Add vertical scroll if needed */
+        }
     </style>
 </head>
 
 <body>
-    <h1>My Google Map on the Right Side</h1>
+    <h1>My Google Map and Info Panel</h1>
 
     <!-- Create a container div for the map -->
     <div id="map-container">
         <div id="googleMap" style="height: 100%;"></div>
+    </div>
+
+    <!-- Create a container div for the info panel -->
+    <div id="info-panel">
+        <h2>Information Panel</h2>
+        <ul>
+            <li>Info Point 1</li>
+            <li>Info Point 2</li>
+            <li>Info Point 3</li>
+            <!-- Add more information points here as needed -->
+        </ul>
     </div>
 
     <script>
@@ -29,7 +52,7 @@
                 center: new google.maps.LatLng(51.508742, -0.120850),
                 zoom: 5,
                 // styles: [
-                //     // Your custom map styling goes her
+                //     // Your custom map styling goes here
                 //     {
                 //         featureType: "road",
                 //         elementType: "geometry",
