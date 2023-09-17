@@ -40,7 +40,22 @@
         
         <div class="info-panel">
             <h2>Information Panel</h2>
-            {% include 'index.html' %}
+
+            <head>
+                <title>Demographics Data [WIP]</title>
+                <style>
+                    button {
+                        color: black;
+                        padding: 10px 40px; /* Optional: Add padding to the button for better appearance */
+
+                        font-size: larger;
+                    }
+                </style>
+            </head>
+            <body>
+                <button onclick="window.location.href='/index'">Demographics Data [WIP]</button>
+            </body>
+
             {% if data %}
 
             <h3>Pie Chart</h3>

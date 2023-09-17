@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
 
-{% include 'header.html' %}
-
 <title>Demographic Data Search</title>
 </head>
 <body>
@@ -65,7 +63,7 @@
         const dataType = $('#data-type').val();  // Get the selected data type
         $.ajax({
             type: 'POST',
-            url: '/',
+            url: '/index',
             data: { zipcode: $('#zipcode').val(), 'data-type': dataType },  // Include both ZIP code and data type
             success: function (response) {
                 $('body').html(response);  // Replace the entire body with the updated content
