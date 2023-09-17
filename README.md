@@ -1,7 +1,3 @@
-## **HomeIQ**
-
-Real Estate and Demographics, Unified. Enter a zip code, explore listings, and access vital demographic data for smarter decisions. Find your dream property or next investment opportunity with HomeIQ!
-
 ## Inspiration
 We were inspired to create HomeIQ to explore areas of web development and data analysis we were not familiar with and to learn something new from this event by tackling CoStar's real estate hack.
 
@@ -16,16 +12,25 @@ HomeIQ combines 2023 real estate data with 2017 US Census demographic data, allo
 - Two tablespoons of tears
 
 ## Challenges we ran into
-- Not familiar with github, Flask, CSS, HTML, or GoogleMaps API
-- Finding recent real estate data with locations included
+- Not familiar with GitHub, Flask, CSS, HTML, or GoogleMaps API
+- Finding public real estate data with locations included to use with GoogleMaps API
+       - Tried to webscrape our own but it didn't work, hit a roadblock
 
 ## Accomplishments that we're proud of
 - Formatting webpages with CSS
-- GoogleMaps API integration
+- Basic intro to GoogleMaps API
 
 ## What we learned
-Through this project, we learned how to use github, Flask, CSS, html, and GoogleMaps API.
+Through this project, we learned how to use GitHub, Flask, CSS, html, and GoogleMaps API.
 
 ## What's next for HomeIQ
+We had a clear goal of what we wanted to achieve, just not the means or resources to do it.
+Here's what we have planned:
 - Webscraping for real-time real estate data
+- Integrating real estate data with GoogleMaps API
+- GoogleMaps API streetview to view listed properties
+- Demographic census data displayed in multiple ways when searching a zip code
 - Hosting on a live site
+- Training modules for financial tips and smart home buying (HomeIQ!)
+- Historic real estate data and how communities of certain demographic groups were discriminated against and how we have improved since then
+- Machine learning to analyze real estate data to predict trends
