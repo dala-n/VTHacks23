@@ -27,10 +27,11 @@
             </div>
           </div>
         </form>
+
       </div>
 
     <div class="info">
-        <h1>My Google Map and Info Panel</h1>
+        <h1>Google Map and Info Panel</h1>
         <div id="map-container">
             <div id="googleMap" style="height: 100%;"></div>
         </div>
@@ -39,7 +40,7 @@
         
         <div class="info-panel">
             <h2>Information Panel</h2>
- 
+            {% include 'index.html' %}
             {% if data %}
 
             <h3>Pie Chart</h3>
@@ -107,6 +108,8 @@
 
     <script>
         var map;
+        var marker;
+
         function initMap() {
           map = new google.maps.Map(document.getElementById("googleMap"), {
             center: { lat: 0, lng: 0 }, // Initial center
@@ -131,6 +134,16 @@
                     var location = results[0].geometry.location;
                     map.setCenter(location);
                     map.setZoom(13); // Adjust the zoom level as needed
+
+                    // Create a marker at the found location
+                    if (marker) {
+                    marker.setMap(null); // Remove the existing marker
+                    }
+                    marker = new google.maps.Marker({
+                    position: location,
+                    map: map,
+                    title: "ZIP Code: " + zipcode,
+                    });
                   } else {
                     alert(
                       "Geocode was not successful for the following reason: " +
