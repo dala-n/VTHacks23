@@ -273,3 +273,42 @@ button span:after {
 .about-us-square p {
   font-size: 18px;
 }
+
+
+#mapcover {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  padding: 35px;
+  margin: -83px auto 0 auto;
+  background-color: #FFBB5C;
+  border-radius: 20px;
+  transform: scale(0.37);
+}
+
+.info
+ {
+  text-align: center;
+  background-color: #FFBB5C;
+  height: 100%;
+  width: 100%;
+}
+
+
+/* CSS for the map container */
+#map-container {
+  float: right; /* Float the map container to the right */
+  width: 47%; /* Set the width to 50% of the screen */
+  height: 90%; /* Calculate the height minus some space for white space */
+  margin-right: 20px; /* Add some white space to the right */
+}
+
+/* CSS for the info panel */
+.info-panel {
+  text-align: left; /* Float the info panel to the left */
+  width: 47%; /* Set the width to 45% of the screen */
+  height: 90%; /* Calculate the height minus some space for white space */
+  margin-left: 20px; /* Add some white space to the left */
+  background-color: #f0f0f0; /* Background color for the info panel */
+}
