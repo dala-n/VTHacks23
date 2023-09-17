@@ -85,7 +85,7 @@ header {
   background-color: #FFBB5C;
   width: 100%;
   position: absolute;
-  top: 12%;
+  top: 84px;
   height: 60%;
 }
 
@@ -250,16 +250,19 @@ button span:after {
   display: flex;
   justify-content: space-between;
   background-color: #FFBB5C;
-  padding: 20px;
+  height: 90%;
+
 }
 
 .about-us-section {
   flex: 0 0 calc(33.33% - 20px); /* Distribute the sections equally */
+  
 }
 
 .about-us-square {
+  top: 50px;
+  height: 200px;
   background-color: gray;
-  padding: 20px;
   text-align: center;
   color: #fff;
   border-radius: 10px;
