@@ -1,20 +1,58 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Simple Map</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <!-- jsFiddle will insert css and js -->
-  </head>
-  <body>
-    <input id="grey" type="button" value="grey" />
-    <input id="classic" type="button" value="classic" />
-    <input id="light" type="button" value="light" />
-    <div id="map"></div>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Population Pie Chart</title>
+  <script src="https://cdn.anychart.com/js/8.0.1/anychart-bundle.min.js"></script>
+  <style>
+    html, body, #container {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  <script>
+    anychart.onDocumentReady(function() {
 
-    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_L6kO-aXyzkq3FpqMr3XzDiS0jTxbJYA&callback=initMap&libraries=&v=beta&map_ids=27887e97bd47bbcd"
-        async
-    ></script>
-  </body>
+      // set the data
+      var data = [
+          {x: "White", value: 223553265, exploded: true},
+          {x: "Black or African American", value: 38929319},
+          {x: "American Indian and Alaska Native", value: 2932248},
+          {x: "Asian", value: 14674252},
+          {x: "Native Hawaiian and Other Pacific Islander", value: 540013},
+          {x: "Some Other Race", value: 19107368},
+          {x: "Two or More Races", value: 9009073}
+      ];
+
+      // create the 3D pie chart
+      var chart = anychart.pie3d();
+
+      // set the chart title
+      chart.title("3D Population by Race for the United States: 2010 Census")
+           .margin(0); // Set the margin to 0 to reduce space
+
+      // add the data
+      chart.data(data);
+
+      // sort elements
+      chart.sort("desc");
+
+      // set legend position
+      chart.legend().position("right");
+      // set items layout
+      chart.legend().itemsLayout("vertical");
+
+      // display the chart in the container
+      chart.container('container');
+      chart.draw();
+
+    });
+  </script>
+</body>
 </html>
